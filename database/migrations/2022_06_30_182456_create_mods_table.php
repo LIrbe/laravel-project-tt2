@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('title');
             $table->text('description');
             $table->string('url');
-            $table->string('image');
+            $table->string('image')->nullable();
             $table->timestamps();
 
             $table->index('user_id');

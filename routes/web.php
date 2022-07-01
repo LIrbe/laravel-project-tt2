@@ -28,3 +28,7 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Auth::routes();
 
 Route::get('/m/create', [App\Http\Controllers\ModsController::class, 'create']);
+
+Auth::routes();
+
+Route::get('/m', [App\Http\Controllers\ModsController::class, 'store']);

@@ -49,6 +49,6 @@ class User extends Authenticatable
 
     public function mods()
     {
-        return $this->hasMany(Mod::class);
+        return $this->hasMany(Mods::class);
     }
 }

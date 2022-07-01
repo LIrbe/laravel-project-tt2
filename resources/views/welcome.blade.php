@@ -150,7 +150,7 @@
                             </div>
                             <div class="ml-12">
                                 <div class="mt-2 text-gray-600 dark:text-gray-400 text-sm">
-                                    Access your profile to customize your password, username, profile picture and add your mod to the forum. 
+                                Access your profile to see your username, profile picture and description and add your mod to the forum. 
                                 </div>
                             </div>
                         </div>

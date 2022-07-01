@@ -1,25 +1,3 @@
-@extends('layouts.app')
-
-@section('content')
-<!--<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Dashboard') }}</div>
-
-                <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                    @endif
-
-                    {{ __('You are logged in!') }}
-                </div>
-            </div>
-        </div>
-    </div>
-</div>-->
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
@@ -28,10 +6,10 @@
 
         <title>URMF</title>
 
-        <!-- Fonts -->
+        Fonts
         <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
 
-        <!-- Styles -->
+        Styles
         <style>
             /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
             html{line-height:1;-webkit-text-size-adjust:100%}
@@ -131,7 +109,7 @@
     </head>
     <body class="antialiased">
         <div class="relative flex items-top justify-center min-h-screen sm:items-center py-4 sm:pt-0">
-           <!--  @if (Route::has('login'))
+           @if (Route::has('login'))
            <div style = "width:100%;height:70px;" class="fixed top-0 right-0 px-6 py-4 sm:block dark:bg-gray-800">    
                 <div class="fixed top-0 right-0 px-6 py-4 sm:block">
                     @auth
@@ -145,7 +123,18 @@
                     @endauth
                 </div>
                 @endif
-            </div>-->
+                <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                    <a class="underline text-gray-900 dark:text-white" href="{{ route('logout') }}"
+                        onclick="event.preventDefault();
+                                        document.getElementById('logout-form').submit();">
+                        {{ __('Logout') }}
+                    </a>
+
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                        @csrf
+                    </form>
+                </div>
+            </div>
 
             <div class="max-w-6xl mx-auto sm:px-6 lg:px-8">
               
@@ -169,11 +158,11 @@
 
                         <div class="p-6 border-t border-gray-200 dark:border-gray-700 md:border-t-0 md:border-l">
                             <div style = "padding-left:32px"  class="flex items-center">
-                                <div class="ml-4 text-lg leading-7 font-semibold"><a href="{{ route('login') }}" class="underline text-gray-900 dark:text-white">Your Profile</a></div>
+                                <div class="ml-4 text-lg leading-7 font-semibold"><a href="{{ url('/profile/'.$user->id) }}" class="underline text-gray-900 dark:text-white">Your Profile</a></div>
                             </div>
                             <div class="ml-12">
                                 <div class="mt-2 text-gray-600 dark:text-gray-400 text-sm">
-                                    Access your profile to customize your password, username, profile picture and add your mod to the forum. 
+                                    Access your profile to see your username, profile picture and description and add your mod to the forum. 
                                 </div>
                             </div>
                         </div>
@@ -233,5 +222,3 @@
         </div>
     </body>
 </html>
-
-@endsection
